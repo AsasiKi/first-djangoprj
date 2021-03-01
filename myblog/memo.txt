@@ -1,0 +1,24 @@
+
+from blog.models import Post
+from django.contrib.auth.models import User
+
+Post.objects.all()
+User.objects.all()
+
+Post.objects.create(author=me,title="Sample Title", text="Text")
+me= User.objects.all()
+me= User.objects.get(username='admin')
+#get은 하나만 저장 가능 두 개 이상 가져올 때는 filter를 사용
+----------------
+from blog.models import Post
+post1 = Post.objects.get(title="1번글")
+post2=Post.objects.get(title__contains="2번")
+post1
+post2
+post1.publish()
+post2.publish()
+-------------------
+Post.objects.all()
+
+Post.objects.filter(title__contains="")
+Post.objects.filter(published_date__lte=timezone.now())

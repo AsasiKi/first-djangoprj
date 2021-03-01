@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>New post</h1>
+    <form method="POST" class="post-form">
+    	{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+        <!-- 버튼은 작성이 완료되었을 때 자료 제출 버튼으로 사용할 것이므로 type="submit으로, 
+        <button>의 여닫는 부분 사이에 적은 문자는 그대로 버튼에 새겨진다. 버튼도 부트스트랩에 해당한다. -->
+    </form>
+{% endblock %}
